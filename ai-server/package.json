@@ -4,9 +4,16 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "start": "tsc && node ."
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0"
+  },
   "devDependencies": {
     "typescript": "^5.5.3"
   },
