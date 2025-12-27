@@ -1,11 +1,13 @@
 import {RowDataPacket} from "mysql2";
+import {z} from "zod";
 
-export interface IUser {
-    username: string;
-    password: string;
-    email: string;
-    profileDescription: string;
-}
+export const User = z.object({
+    username: z.string(),
+    password: z.string(),
+    email: z.email(),
+    profileDescription: z.string(),
+});
+export type IUser = z.infer<typeof User>;
 
 export interface IUserData extends RowDataPacket {
     username: string;
@@ -24,5 +26,10 @@ export interface IUserPasswordChange {
 }
 
 export interface IUserPassword extends RowDataPacket {
+    password: string;
+}
+
+export interface IUserLogin {
+    username: string;
     password: string;
 }
