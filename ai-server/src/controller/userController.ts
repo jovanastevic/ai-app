@@ -1,5 +1,5 @@
 import {Express, Request, Response} from "express";
-import {IUpdateUser, IUser, IUserPasswordChange, User} from "../model/user";
+import {UpdateUser,User, UserPasswordChange} from "../model/user";
 import {UserService} from "../service/userService";
 import {validateAuth} from "../auth";
 
@@ -42,24 +42,30 @@ export class UserController {
         if (!user) {
             res.status(404).send();
             return;
+        } else if (user === 'error') {
+            res.status(500).json({message: 'Database error'});
+            return;
         }
         res.status(200).json(user);
     }
 
     static async updateUser(req: Request, res: Response) {
-        const data = req.body as IUpdateUser;
+        const data = UpdateUser.safeParse(req.body);
 
-        if (!data || !data.email || !data.profileDescription) {
-            res.status(400).json({message: 'Missing fields'});
+        if (!data.success) {
+            res.status(400).json({
+                message: 'Wrong input data',
+                errors: data.error
+            });
             return;
         }
 
-        if(req.params.username !== req.params._username){
+        if (req.params.username !== req.params._username) {
             res.status(403).send();
             return;
         }
 
-        const result = await UserService.updateUser(req.params.username, data);
+        const result = await UserService.updateUser(req.params.username, data.data);
 
         if (result === 'notFound') {
             res.status(404).send();
@@ -73,19 +79,22 @@ export class UserController {
     }
 
     static async updatePassword(req: Request, res: Response) {
-        const data = req.body as IUserPasswordChange;
+        const data = UserPasswordChange.safeParse(req.body);
 
-        if (!data || !data.oldPassword || !data.newPassword) {
-            res.status(400).json({message: 'Missing fields'});
+        if (!data.success) {
+            res.status(400).json({
+                message: 'Wrong input data',
+                errors: data.error
+            });
             return;
         }
 
-        if(req.params.username !== req.params._username){
+        if (req.params.username !== req.params._username) {
             res.status(403).send();
             return;
         }
 
-        const result = await UserService.updatePassword(req.params.username, data);
+        const result = await UserService.updatePassword(req.params.username, data.data);
 
         if (result === 'notFound') {
             res.status(404).send();
@@ -102,7 +111,7 @@ export class UserController {
     }
 
     static async deleteUser(req: Request, res: Response) {
-        if(req.params.username !== req.params._username){
+        if (req.params.username !== req.params._username) {
             res.status(403).send();
             return;
         }

@@ -1,5 +1,5 @@
 import {Express, Request, Response} from 'express';
-import {IUserLogin} from '../model/user';
+import {UserLogin} from '../model/user';
 import {UserService} from '../service/userService';
 import {generateToken} from '../auth';
 
@@ -8,20 +8,20 @@ export class AuthController {
         app.post('/login', AuthController.login);
     }
     static async login (req: Request, res:Response): Promise<void> {
-        const data = req.body as IUserLogin;
+        const data = UserLogin.safeParse(req.body);
 
-        if(!data || !data.username || !data.password) {
+        if(!data.success) {
             res.status(400).json({message: 'Missing fields'});
             return;
         }
 
-        const result = await UserService.validatePassword(data);
+        const result = await UserService.validatePassword(data.data);
 
         if(!result){
             res.status(401).send();
             return
         }
-        const payload = {username: data.username};
+        const payload = {username: data.data.username};
         res.json({token: generateToken(payload)});
     }
 }

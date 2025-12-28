@@ -1,7 +1,7 @@
-import {IUpdateUser, IUser, IUserData, IUserPassword, IUserPasswordChange, IUserLogin} from "../model/user";
+import {IUpdateUser, IUser, IUserData, IUserPasswordChange, IUserLogin, UserData} from "../model/user";
 import {compare, hash} from "bcrypt";
 import {DB} from "../db";
-import {ResultSetHeader} from "mysql2";
+import {ResultSetHeader, RowDataPacket} from "mysql2";
 
 export class UserService {
     static async create(user: IUser): Promise<'conflict' | 'created' | 'error'> {
@@ -22,18 +22,18 @@ export class UserService {
         }
     }
 
-    static async getByUsername(username: string): Promise<IUserData | undefined> {
+    static async getByUsername(username: string): Promise<IUserData | undefined | 'error'> {
         try {
-            const [rows] = await DB.query<IUserData[]>('select username, email, profileDescription from member where username = ?', [username]);
+            const [rows] = await DB.query<RowDataPacket[]>('select username, email, profileDescription from member where username = ?', [username]);
 
             if (!rows || rows.length === 0) {
                 return undefined;
             }
 
-            return rows[0];
+            return UserData.safeParse(rows[0]).data;
         } catch (e) {
             console.error(e);
-            return undefined;
+            return 'error';
         }
     }
 
@@ -54,7 +54,7 @@ export class UserService {
     }
 
     static async updatePassword(username: string, data: IUserPasswordChange): Promise<'notFound' | 'mismatch' | 'updated' | 'error'> {
-        const [rows] = await DB.query<IUserPassword[]>('select password from member where username = ?', [username]);
+        const [rows] = await DB.query<RowDataPacket[]>('select password from member where username = ?', [username]);
 
         if (rows && rows.length === 0) {
             return 'notFound';
@@ -95,7 +95,7 @@ export class UserService {
     }
 
     static async validatePassword(data: IUserLogin): Promise<boolean> {
-        const [rows] = await DB.query<IUserPassword[]>('select password from member where username = ?', [data.username]);
+        const [rows] = await DB.query<RowDataPacket[]>('select password from member where username = ?', [data.username]);
 
         if (rows && rows.length === 0) {
             return false;
