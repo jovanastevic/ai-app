@@ -2,8 +2,21 @@ import {IUpdateUser, IUser, IUserData, IUserPasswordChange, IUserLogin, UserData
 import {compare, hash} from "bcrypt";
 import {DB} from "../db";
 import {ResultSetHeader, RowDataPacket} from "mysql2";
+import {z} from "zod";
 
 export class UserService {
+    static async getAllUsers():Promise<IUserData[] | 'error' | undefined> {
+        try{
+            const [rows] = await DB.query<RowDataPacket[]>('select username, email, profileDescription from member');
+            if (!rows || rows.length === 0) {
+                return undefined;
+            }
+            return z.array(UserData).safeParse(rows).data;
+        } catch (e) {
+            console.error(e);
+            return 'error';
+        }
+    }
     static async create(user: IUser): Promise<'conflict' | 'created' | 'error'> {
         const existingUser = await UserService.getByUsername(user.username);
 

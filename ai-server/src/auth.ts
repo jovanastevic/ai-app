@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 import {Request, Response, NextFunction } from 'express';
+import {DB} from "./db";
+import {RowDataPacket} from "mysql2";
 
 interface ITokenPayload {
     username : string;
@@ -24,5 +26,16 @@ export function validateAuth(req: Request, res: Response, next: NextFunction) {
         next();
     } catch {
         res.status(401).send();
+    }
+}
+
+export async function  isAdmin(req: Request, res: Response, next: NextFunction) {
+    try{
+        const [result] = await DB.query<RowDataPacket[]>('select admin from member where username = ?', [req.params._username]);
+        if(result[0].admin !== 1) return res.status(403).send();
+        next();
+    } catch(e){
+        res.status(500).json({message: 'Database error'});
+        return;
     }
 }

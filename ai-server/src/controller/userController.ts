@@ -8,8 +8,22 @@ export class UserController {
         app.post('/user/', UserController.createUser);
         app.put('/user/:username', validateAuth, UserController.updateUser);
         app.get('/user/:username', UserController.getByUsername);
+        app.get('/user/', UserController.getAllUsers);
         app.delete('/user/:username', validateAuth, UserController.deleteUser);
         app.put('/user/:username/password', validateAuth, UserController.updatePassword);
+    }
+
+    static async getAllUsers(req: Request, res: Response) {
+        const users = await UserService.getAllUsers();
+        if(!users) {
+            res.status(404).send();
+            return;
+        }else if (users === 'error') {
+            res.status(500).json({message: 'Database error'});
+            return;
+        }
+
+        res.status(200).json(users);
     }
 
     static async createUser(req: Request, res: Response) {

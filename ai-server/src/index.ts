@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 import {AuthController} from "./controller/authController";
 import {UserController} from "./controller/userController";
+import {CategoryController} from "./controller/categoryController";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 
 AuthController.init(app);
 UserController.init(app);
+CategoryController.init(app);
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
