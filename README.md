@@ -1,12 +1,12 @@
 # Actual Intelligence (AI) - Semesterprojekt WS25
 
 
-## /login 
+## /login -DONE
 lukis doku
 
 POST /login - login
 
-## /user
+## /user -DONE
 
 Doku bei luki
 
