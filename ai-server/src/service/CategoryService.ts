@@ -1,6 +1,6 @@
 import {DB} from "../db";
 import {z} from "zod";
-import {Category, ICategory, INewCategory} from "../model/category";
+import {Category, ICategory, INewCategory} from "../model/Category";
 import {ResultSetHeader, RowDataPacket} from "mysql2";
 
 export class CategoryService{

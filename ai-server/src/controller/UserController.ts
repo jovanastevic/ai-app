@@ -1,6 +1,6 @@
 import {Express, Request, Response} from "express";
-import {UpdateUser,User, UserPasswordChange} from "../model/user";
-import {UserService} from "../service/userService";
+import {UpdateUser,User, UserPasswordChange} from "../model/User";
+import {UserService} from "../service/UserService";
 import {validateAuth} from "../auth";
 
 export class UserController {

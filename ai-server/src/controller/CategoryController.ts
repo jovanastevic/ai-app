@@ -1,6 +1,6 @@
-import {CategoryService} from "../service/categoryService";
+import {CategoryService} from "../service/CategoryService";
 import {Express, Request, Response} from "express";
-import {NewCategory} from "../model/category";
+import {NewCategory} from "../model/Category";
 import {isAdmin, validateAuth} from "../auth";
 
 export class CategoryController {

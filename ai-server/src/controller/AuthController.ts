@@ -1,6 +1,6 @@
 import {Express, Request, Response} from 'express';
-import {UserLogin} from '../model/user';
-import {UserService} from '../service/userService';
+import {UserLogin} from '../model/User';
+import {UserService} from '../service/UserService';
 import {generateToken} from '../auth';
 
 export class AuthController {

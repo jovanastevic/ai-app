@@ -3,9 +3,9 @@ loadEnvFile();
 
 import express from "express";
 import cors from "cors";
-import {AuthController} from "./controller/authController";
-import {UserController} from "./controller/userController";
-import {CategoryController} from "./controller/categoryController";
+import {AuthController} from "./controller/AuthController";
+import {UserController} from "./controller/UserController";
+import {CategoryController} from "./controller/CategoryController";
 
 const app = express();
 

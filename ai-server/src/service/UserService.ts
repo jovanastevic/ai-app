@@ -1,4 +1,4 @@
-import {IUpdateUser, IUser, IUserData, IUserPasswordChange, IUserLogin, UserData} from "../model/user";
+import {IUpdateUser, IUser, IUserData, IUserPasswordChange, IUserLogin, UserData} from "../model/User";
 import {compare, hash} from "bcrypt";
 import {DB} from "../db";
 import {ResultSetHeader, RowDataPacket} from "mysql2";
