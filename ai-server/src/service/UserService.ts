@@ -7,7 +7,7 @@ import {z} from "zod";
 export class UserService {
     static async getAllUsers():Promise<IUserData[] | 'error' | undefined> {
         try{
-            const [rows] = await DB.query<RowDataPacket[]>('select username, email, profileDescription from member');
+            const [rows] = await DB.query<RowDataPacket[]>('select username, email, profileDescription from user');
             if (!rows || rows.length === 0) {
                 return undefined;
             }
@@ -25,7 +25,7 @@ export class UserService {
         user.password = await hash(user.password, 10);
 
         try {
-            const [inserted] = await DB.execute<ResultSetHeader>('insert into member(username, password, email, profileDescription) values(?, ?, ?, ?)', [user.username, user.password, user.email, user.profileDescription]);
+            const [inserted] = await DB.execute<ResultSetHeader>('insert into user(username, password, email, profileDescription) values(?, ?, ?, ?)', [user.username, user.password, user.email, user.profileDescription]);
 
             if (inserted.affectedRows < 1) return 'error';
             return 'created';
@@ -37,7 +37,7 @@ export class UserService {
 
     static async getByUsername(username: string): Promise<IUserData | undefined | 'error'> {
         try {
-            const [rows] = await DB.query<RowDataPacket[]>('select username, email, profileDescription from member where username = ?', [username]);
+            const [rows] = await DB.query<RowDataPacket[]>('select username, email, profileDescription from user where username = ?', [username]);
 
             if (!rows || rows.length === 0) {
                 return undefined;
@@ -56,7 +56,7 @@ export class UserService {
         if (!existingUser) return 'notFound';
 
         try {
-            const [updated] = await DB.execute<ResultSetHeader>('update member set email = ?, profileDescription = ? where username = ?', [data.email, data.profileDescription, username]);
+            const [updated] = await DB.execute<ResultSetHeader>('update user set email = ?, profileDescription = ? where username = ?', [data.email, data.profileDescription, username]);
 
             if (updated.affectedRows < 1) return 'error';
             return 'updated';
@@ -67,7 +67,7 @@ export class UserService {
     }
 
     static async updatePassword(username: string, data: IUserPasswordChange): Promise<'notFound' | 'mismatch' | 'updated' | 'error'> {
-        const [rows] = await DB.query<RowDataPacket[]>('select password from member where username = ?', [username]);
+        const [rows] = await DB.query<RowDataPacket[]>('select password from user where username = ?', [username]);
 
         if (rows && rows.length === 0) {
             return 'notFound';
@@ -81,7 +81,7 @@ export class UserService {
         data.newPassword = await hash(data.newPassword, 10);
 
         try {
-            const [updated] = await DB.execute<ResultSetHeader>('update member set password = ? where username = ?', [data.newPassword, username]);
+            const [updated] = await DB.execute<ResultSetHeader>('update user set password = ? where username = ?', [data.newPassword, username]);
 
             if (updated.affectedRows < 1) return 'error';
             return 'updated';
@@ -97,7 +97,7 @@ export class UserService {
         if (!existingUser) return 'notFound';
 
         try {
-            const [deleted] = await DB.execute<ResultSetHeader>('delete from member where username = ?', [username]);
+            const [deleted] = await DB.execute<ResultSetHeader>('delete from user where username = ?', [username]);
 
             if (deleted.affectedRows < 1) return 'error';
             return 'deleted';
@@ -108,7 +108,7 @@ export class UserService {
     }
 
     static async validatePassword(data: IUserLogin): Promise<boolean> {
-        const [rows] = await DB.query<RowDataPacket[]>('select password from member where username = ?', [data.username]);
+        const [rows] = await DB.query<RowDataPacket[]>('select password from user where username = ?', [data.username]);
 
         if (rows && rows.length === 0) {
             return false;
