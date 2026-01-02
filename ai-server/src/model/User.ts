@@ -22,7 +22,7 @@ export const UserPasswordChange = z.object({
     newPassword: z.string(),
 });
 
-export const UserLogin = z.object( {
+export const UserLogin = z.object({
     username: z.string(),
     password: z.string(),
 });

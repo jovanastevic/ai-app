@@ -20,7 +20,7 @@ PUT /user/:id - User updaten
 
 DELETE /user/:id - User löschen
 
-## /category
+## /category - DONE
 
 Die Get routen sind für die User, der rest für Admins
 
@@ -34,7 +34,7 @@ PUT /categories/:id - Kategorie updaten
 
 DELETE /categories/:id - Kategorie löschen
 
-## /prompt
+## /prompt -DONE
 POST /prompts - neuen Prompt erstellen
 
 GET /prompts - alle Prompts holen

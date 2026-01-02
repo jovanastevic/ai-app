@@ -1,5 +1,107 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=WebStorm
+### Create new User
+POST http://localhost:3000/user
+Content-Type: application/json
 
-###
+{
+  "username": "test2",
+  "password": "1234",
+  "email": "dajdj@gmail.com",
+  "profileDescription": "I am the admin user"
+}
+
+### Login User
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "test2",
+  "password": "1234"
+}
+
+### Get all Users
+GET http://localhost:3000/user
+
+### Get one User
+GET http://localhost:3000/user/test2
+
+### Update User
+PUT http://localhost:3000/user/test2
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "email": "dajdj@gmsail.com",
+  "profileDescription": "I am the new admin user"
+}
+
+### Update User Password
+PUT http://localhost:3000/user/test2/password
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "oldPassword": "1234",
+  "newPassword": "5678"
+}
+
+### Delete User
+DELETE http://localhost:3000/user/test2
+Authorization: Bearer
+
+### Create Category
+POST http://localhost:3000/categories
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "name": "Electronics12312",
+  "description": "HALLLOOOOOO"
+}
+
+### Get all Categories
+GET http://localhost:3000/categories
+
+### Get one Category
+GET http://localhost:3000/categories/2
+
+### Update Category
+PUT http://localhost:3000/categories/3
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "name": "ElectronicsUpdated",
+  "description": "Updated Description"
+}
+
+### Delete Category
+DELETE http://localhost:3000/categories/1
+Authorization: Bearer
+
+### Create Prompt
+POST http://localhost:3000/prompts
+Content-Type: application/json
+
+{
+  "categoryID": 2,
+  "userowner": "test2",
+  "title": "TEST ROUTE TEST 2",
+  "description": "THIS IS A TEST ROUTE"
+}
+
+### Get all Prompts
+GET http://localhost:3000/prompts
+
+### Get one Prompt
+GET http://localhost:3000/prompts/2
+
+### Update Prompt
+PUT http://localhost:3000/prompts/2
+content-Type: application/json
+
+{
+    "title": "UPDATED TEST ROUTE",
+    "description": "THIS IS AN UPDATED TEST ROUTE"
+}
+### Delete Prompt
+DELETE http://localhost:3000/prompts/2

@@ -1,5 +1,5 @@
 import {Express, Request, Response} from "express";
-import {UpdateUser,User, UserPasswordChange} from "../model/User";
+import {UpdateUser, User, UserPasswordChange} from "../model/User";
 import {UserService} from "../service/UserService";
 import {validateAuth} from "../auth";
 
@@ -15,10 +15,10 @@ export class UserController {
 
     static async getAllUsers(req: Request, res: Response) {
         const users = await UserService.getAllUsers();
-        if(!users) {
+        if (!users) {
             res.status(404).send();
             return;
-        }else if (users === 'error') {
+        } else if (users === 'error') {
             res.status(500).json({message: 'Database error'});
             return;
         }

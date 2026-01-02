@@ -31,7 +31,7 @@ export function validateAuth(req: Request, res: Response, next: NextFunction) {
 
 export async function  isAdmin(req: Request, res: Response, next: NextFunction) {
     try{
-        const [result] = await DB.query<RowDataPacket[]>('select admin from member where username = ?', [req.params._username]);
+        const [result] = await DB.query<RowDataPacket[]>('select admin from user where username = ?', [req.params._username]);
         if(result[0].admin !== 1) return res.status(403).send();
         next();
     } catch(e){
