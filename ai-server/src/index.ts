@@ -1,4 +1,5 @@
 import {loadEnvFile} from "node:process";
+loadEnvFile();
 import express from "express";
 import cors from "cors";
 import {AuthController} from "./controller/AuthController";
@@ -6,7 +7,6 @@ import {UserController} from "./controller/UserController";
 import {CategoryController} from "./controller/CategoryController";
 import {PromptController} from "./controller/PromptController";
 
-loadEnvFile();
 
 const app = express();
 
