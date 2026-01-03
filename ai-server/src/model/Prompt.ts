@@ -3,7 +3,7 @@ import {z} from 'zod';
 export const Prompt = z.object({
     id: z.number(),
     category_id: z.number(),
-    userowner: z.string().nullable(),
+    userowner: z.string(),
     title: z.string(),
     description: z.string(),
     time_stamp: z.date().or(z.string()),
@@ -11,7 +11,7 @@ export const Prompt = z.object({
 
 export const NewPrompt = z.object({
     category_id: z.number(),
-    userowner: z.string().nullable(),
+    userowner: z.string(),
     title: z.string(),
     description: z.string(),
 })
