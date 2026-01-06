@@ -55,3 +55,16 @@ GET /chats/:id - einzelnen Chat holen
 GET /chats/:id/messages - alle Messages von einem Chat holen
 
 POST /chats - neuen Chat erstellen
+
+------
+Anforderungen Frontend:
+- 3 verschieden Seiten (Home, Prompt List, Login)
+- min eine dynamische Route (Prompts)
+
+Zusatzpunkte:
+- Theme Switch
+- API Client - ka
+- Authentication mit JWT
+- Design
+- Clean Code
+- Unterseite mit 3 Dingen aufgelistet die in LV gelernt wurden
