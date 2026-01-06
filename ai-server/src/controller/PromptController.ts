@@ -38,6 +38,7 @@ export class PromptController {
     }
 
     static async createPrompt(req: Request, res: Response) {
+        const userowner = req.params._username;
         const data = NewPrompt.safeParse(req.body);
         if (!data.success) {
             res.status(400).json({
@@ -54,7 +55,7 @@ export class PromptController {
             res.status(500).json({message: 'Database error'});
             return;
         }
-        const result = await PromptService.createPrompt(data.data);
+        const result = await PromptService.createPrompt(data.data, userowner);
         if (result === 'error') {
             res.status(500).json({message: 'Database error'});
             return;

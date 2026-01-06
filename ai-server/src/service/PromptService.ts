@@ -30,9 +30,9 @@ export class PromptService {
         }
     }
 
-    static async createPrompt(data: INewPrompt): Promise<'error' | 'created'> {
+    static async createPrompt(data: INewPrompt, userowner:string): Promise<'error' | 'created'> {
         try {
-            const [insert] = await DB.execute<ResultSetHeader>('insert into prompts (category_id, userowner, title, description) values (?, ?, ?, ?)', [data.category_id, data.userowner, data.title, data.description]);
+            const [insert] = await DB.execute<ResultSetHeader>('insert into prompts (category_id, userowner, title, description) values (?, ?, ?, ?)', [data.category_id, userowner, data.title, data.description]);
             if (insert.affectedRows < 1) return 'error';
             return 'created';
         } catch (e) {

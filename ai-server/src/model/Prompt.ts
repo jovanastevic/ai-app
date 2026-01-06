@@ -11,7 +11,6 @@ export const Prompt = z.object({
 
 export const NewPrompt = z.object({
     category_id: z.number(),
-    userowner: z.string(),
     title: z.string(),
     description: z.string(),
 })
