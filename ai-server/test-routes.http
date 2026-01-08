@@ -105,3 +105,28 @@ content-Type: application/json
 }
 ### Delete Prompt
 DELETE http://localhost:3000/prompts/2
+
+### GET one Chatroom
+GET http://localhost:3000/chat/1
+Authorization: Bearer
+
+### GET all ChatsRooms of users:
+GET http://localhost:3000/chat
+Authorization: Bearer
+
+### GET all user messages
+GET http://localhost:3000/chat/1/messages
+Authorization: Bearer
+
+### POST create new Chatroom
+POST http://localhost:3000/chat
+Authorization: Bearer
+content-Type: application/json
+
+{
+  "name": "TEST NAME"
+}
+
+### Delet Chatroom
+DELETE http://localhost:3000/chat/4
+Authorization: Bearer

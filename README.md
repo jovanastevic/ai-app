@@ -140,7 +140,7 @@
     - 401 **<- Authentication is required**
     - 500 **{message: Database error}**
     - 200 **{room: id, name, time_stamp}**
-### GET /chat - alle Chats eines Users holen:
+### GET /chat - alle Chats(Rooms) eines Users holen:
 - req:**{Token}**
 - res: 404 **<- Not Found**
     - 401 **<- Authentication is required**
@@ -158,7 +158,7 @@
   - 400 **{message: Wrong input data || Conflict in Database}**
   - 401 **<- Authentication is required**
   - 500 **{message: Database error}**
-  - 200 **<- Room created and user added to Room**
+  - 201 **<- Room created and user added to Room**
 ### DELETE /chat/:id - Chat(Room) löschen:
 - req:**{Token}**
 - res: 404 **<- Not Found**
