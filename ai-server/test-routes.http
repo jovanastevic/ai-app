@@ -3,7 +3,7 @@ POST http://localhost:3000/user
 Content-Type: application/json
 
 {
-  "username": "admin",
+  "username": "test2",
   "password": "1234",
   "email": "dajdj@gmail.com",
   "profileDescription": "I am the admin user"
@@ -120,7 +120,7 @@ Authorization: Bearer
 
 ### POST create new Chatroom
 POST http://localhost:3000/chat
-Authorization: Bearer
+Authorization:
 content-Type: application/json
 
 {

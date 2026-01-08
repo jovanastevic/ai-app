@@ -165,3 +165,14 @@
     - 401 **<- Authentication is required**
     - 500 **{message: Database error}**
     - 200 **<- Prompt deleted**
+# WebSocket
+### events: **'join' | 'startTyping' | 'stopTyping' | 'message'**
+#### 'join': 
+- **request{event: 'join', chat_id: number, user_id: string}**
+- **maybe response{event: 'error', data: {message: 'You are not allowed'}}**
+### 'startTyping' | 'stopTyping':
+- **request{event: 'startTyping' || 'stopTyping',chat_id: number, user_id: string}**
+- **response{event: 'startTyping' || 'stopTyping', data: {user_id: string}}**
+### 'message'
+- **request{event: 'message',chat_id: number, user_id: string, message: string}**
+- **response{event: 'message', data: {user_id: string, message: string, time_stamp: Date}}**
