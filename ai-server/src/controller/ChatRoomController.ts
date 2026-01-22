@@ -7,7 +7,7 @@ export class ChatRoomController {
     static init(app: Express): void {
         app.get('/chat/:id', validateAuth, ChatRoomController.getChatRoomByID);
         app.get('/chat/', validateAuth, ChatRoomController.getUserChatRooms);
-        app.get('chat/:id/messages', validateAuth, ChatRoomController.getChatMessages)
+        app.get('/chat/:id/messages', validateAuth, ChatRoomController.getChatMessages)
         app.post('/chat', validateAuth,ChatRoomController.createChatRoom);
         app.delete('/chat/:id', validateAuth, ChatRoomController.deleteChatRoom);
     }
@@ -70,7 +70,7 @@ export class ChatRoomController {
             res.status(500).json({message: 'Database error'});
             return;
         }
-        res.status(200).send();
+        res.status(201).send();
     }
 
     static async deleteChatRoom(req: Request, res: Response){

@@ -20,7 +20,7 @@ export class ChatRoomService{
     static async getUserChatRooms(userId: string): Promise<IChatRoom[] | 'error'| undefined> {
         try {
             const [rows] = await DB.query<RowDataPacket[]>(
-                `SELECT r.* FROM chat_room r JOIN chat_member m ON r.id = m.chat_room_id WHERE m.user_id = ?`, [userId]);
+                `SELECT r.* FROM chat_room r JOIN chat_member m ON r.id = m.chat_id WHERE m.user_id = ?`, [userId]);
             if (!rows || rows.length === 0) {
                 return undefined;
             }
@@ -46,9 +46,9 @@ export class ChatRoomService{
 
     static async createChatRoom(name: INewChatRoom): Promise<undefined | 'error'| IRoomID > {
         try {
-            const [insert] = await DB.execute<ResultSetHeader>('insert into chat_room(name) values(?)', [name]);
-            if(insert.affectedRows > 1) return 'error';
-            const [rows] = await DB.query<RowDataPacket[]>('select id from chat_room where name=?', [name])
+            const [result] = await DB.execute<ResultSetHeader>('insert into chat_room (name) values(?)', [name.name]);
+            if(result.affectedRows > 1) return 'error';
+            const [rows] = await DB.query<RowDataPacket[]>('select id from chat_room where name=?', [name.name])
             if (!rows || rows.length === 0) {
                 return undefined;
             }
@@ -61,7 +61,7 @@ export class ChatRoomService{
 
     static async addUserToRoom(chatId: IRoomID, userId: string): Promise<'added' | 'error'> {
         try {
-            await DB.execute('INSERT INTO chat_member (chat_id, user_id) VALUES (?, ?)', [chatId, userId]);
+            await DB.execute('INSERT INTO chat_member (chat_id, user_id) VALUES (?, ?)', [chatId.id, userId]);
             return 'added';
         } catch (e) {
             console.error(e);
