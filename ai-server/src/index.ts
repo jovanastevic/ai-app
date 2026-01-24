@@ -11,6 +11,7 @@ import {CategoryController} from "./controller/CategoryController";
 import {PromptController} from "./controller/PromptController";
 import {ChatRoomController} from "./controller/ChatRoomController";
 import {ChatController} from "./controller/ChatController";
+import cookieParser from "cookie-parser";
 
 
 const app = express();
@@ -18,6 +19,7 @@ const server = createServer(app);
 const wss = new WebSocketServer({server});
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(express.static("public")); //nur für den test WS
 app.use(cors({
     origin: 'http://localhost:4321',

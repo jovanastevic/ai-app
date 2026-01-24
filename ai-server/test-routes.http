@@ -18,6 +18,13 @@ Content-Type: application/json
   "password": "hallo"
 }
 
+> {%
+    var setCookie = response.headers.valueOf("Set-Cookie");
+    var cleanCookie = setCookie.split(";")[0];
+    client.global.set("auth_cookie", cleanCookie);
+    client.log("Cookie gesetzt: " + cleanCookie);
+%}
+
 ### Get all Users
 GET http://localhost:3000/user
 
@@ -66,7 +73,6 @@ GET http://localhost:3000/categories/2
 
 ### Update Category
 PUT http://localhost:3000/categories/3
-Authorization: Bearer
 Content-Type: application/json
 
 {
@@ -80,13 +86,13 @@ Authorization: Bearer
 
 ### Create Prompt
 POST http://localhost:3000/prompts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhbGxvIiwiaWF0IjoxNzY5Mjc5NDQ2fQ.lwOb85Zypm8S9UKM1jqM-HdleBTbJxdKCrHW7pP9Yx4
 Content-Type: application/json
+Cookie: {{auth_cookie}}
 
 {
   "category_id": 6,
   "userowner": "hallo",
-  "title": "TEST ROUTE TEST 2",
+  "title": "TEST ROUTEfdaf TEST 2",
   "description": "THIS IS A TEST ROUTE"
 }
 
