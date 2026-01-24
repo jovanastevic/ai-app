@@ -16,6 +16,12 @@ import {
 } from "lucide-react"
 
 export function UserAvatar() {
+    function handleLogout() {
+        document.cookie = "jwt=; path=/; max-age=0;";
+
+        window.location.href = "/auth";
+    }
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -42,7 +48,7 @@ export function UserAvatar() {
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator/>
                 <DropdownMenuGroup>
-                    <DropdownMenuItem variant="destructive">
+                    <DropdownMenuItem variant="destructive" onClick={handleLogout}>
                         <LogOutIcon/>
                         Abmelden</DropdownMenuItem>
                 </DropdownMenuGroup>

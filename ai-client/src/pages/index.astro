@@ -1,6 +1,10 @@
 ---
 import Counter from '../components/Counter.tsx';
 import Layout from '../layouts/Layout.astro';
+
+if(!Astro.cookies.has("jwt")){
+    return Astro.redirect("/auth");
+}
 ---
 <Layout>
     <Counter client:load/>
