@@ -34,17 +34,15 @@ export function Auth() {
 
         try {
             if (isLogin) {
-                console.log("hallo");
                 const response = await api.login({
                     username: formData.username,
                     password: formData.password
                 });
-                console.log("hallo2");
-                document.cookie = `jwt=${response.token}; path=/; max-age=86400;`;
+                //glaube das geht nicht so aber keine ahnung ich hab kb mehr
+                // document.cookie = `jwt=${response.token}; path=/; max-age=86400;`;
 
                 window.location.href = "/";
             } else {
-                console.log("Registering user:", formData);
                  await api.register({
                     username: formData.username,
                     password: formData.password,
