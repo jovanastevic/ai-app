@@ -39,8 +39,8 @@ export function Auth() {
                     username: formData.username,
                     password: formData.password
                 });
-
-                document.cookie = `jwt=${response.token}; path=/; max-age=86400; SameSite=Strict`;
+                console.log("hallo2");
+                document.cookie = `jwt=${response.token}; path=/; max-age=86400;`;
 
                 window.location.href = "/";
             } else {

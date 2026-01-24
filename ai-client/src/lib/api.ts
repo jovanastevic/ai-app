@@ -61,12 +61,6 @@ export class ApiClient {
             body: JSON.stringify(credentials),
         });
     }
-
-    async logout(): Promise<BaseResponse> {
-        return this.request<BaseResponse>('/logout', {
-            method: 'POST',
-        });
-    }
 }
 
 export const api = new ApiClient('http://localhost:3000');
