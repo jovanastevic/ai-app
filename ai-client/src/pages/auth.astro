@@ -1,7 +1,7 @@
 ---
 import AuthLayout from '../layouts/AuthLayout.astro';
-// import Auth from '../components/Auth.astro';
+import { Auth as AuthComponent } from "../components/auth/Auth.tsx"
 ---
 <AuthLayout>
-    <!--<Auth />-->
+    <AuthComponent client:load />
 </AuthLayout>
