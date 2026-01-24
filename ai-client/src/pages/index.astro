@@ -1,5 +1,5 @@
 ---
-import Counter from '../components/Counter.tsx';
+import {PromptCard} from '../components/PromptCard.tsx';
 import Layout from '../layouts/Layout.astro';
 
 // if(!Astro.cookies.has("jwt")){
@@ -8,5 +8,5 @@ import Layout from '../layouts/Layout.astro';
 
 ---
 <Layout>
-    <Counter client:load/>
+    <PromptCard client:load/>
 </Layout>
