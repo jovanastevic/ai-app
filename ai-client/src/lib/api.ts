@@ -25,12 +25,10 @@ export interface Category {
 }
 
 export interface Prompt {
-    id: number;
-    category_id: string;
+    category_id: number;
     userowner: string;
     title: string;
     description: string;
-    time: string;
 }
 
 export class ApiClient {
@@ -85,7 +83,7 @@ export class ApiClient {
     }
 
     async createPrompt(promptData: Prompt): Promise<BaseResponse> {
-        return this.request<BaseResponse>('/user', {
+        return this.request<BaseResponse>('/prompts', {
             method: 'POST',
             body: JSON.stringify(promptData),
         });
