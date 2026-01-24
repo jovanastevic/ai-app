@@ -38,9 +38,6 @@ export function Auth() {
                     username: formData.username,
                     password: formData.password
                 });
-                //glaube das geht nicht so aber keine ahnung ich hab kb mehr
-                // document.cookie = `jwt=${response.token}; path=/; max-age=86400;`;
-
                 window.location.href = "/";
             } else {
                  await api.register({

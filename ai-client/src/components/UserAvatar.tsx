@@ -17,9 +17,6 @@ import {
 
 export function UserAvatar() {
     function handleLogout() {
-        //glaube das geht nicht so aber keine ahnung ich hab kb mehr
-        // document.cookie = "jwt=; path=/; max-age=0;";
-
         window.location.href = "/auth";
     }
 
