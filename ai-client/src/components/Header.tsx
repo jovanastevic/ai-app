@@ -2,6 +2,7 @@ import {UserAvatar} from "./UserAvatar";
 import logo from "@/assets/logo-yea.svg";
 import logoLight from "@/assets/logo-yea-light.svg";
 import {ModeToggle} from "@/components/ModeToggle.tsx";
+import {PlusIcon} from "lucide-react"
 
 export function Header() {
     return (
@@ -14,8 +15,11 @@ export function Header() {
                 <h1 className="text-3xl font-bold">Actual Intelligence</h1>
             </div>
             <div className="flex items-center gap-4">
-                <ModeToggle />
-                <UserAvatar />
+                <a href="/create-prompt">
+                    <PlusIcon/>
+                </a>
+                <ModeToggle/>
+                <UserAvatar/>
             </div>
         </header>
     )

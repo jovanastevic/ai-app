@@ -14,8 +14,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "username": "test2",
-  "password": "1234"
+  "username": "hallo",
+  "password": "hallo"
 }
 
 ### Get all Users
@@ -80,11 +80,12 @@ Authorization: Bearer
 
 ### Create Prompt
 POST http://localhost:3000/prompts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhbGxvIiwiaWF0IjoxNzY5Mjc5NDQ2fQ.lwOb85Zypm8S9UKM1jqM-HdleBTbJxdKCrHW7pP9Yx4
 Content-Type: application/json
 
 {
-  "categoryID": 2,
-  "userowner": "test2",
+  "category_id": 6,
+  "userowner": "hallo",
   "title": "TEST ROUTE TEST 2",
   "description": "THIS IS A TEST ROUTE"
 }

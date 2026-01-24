@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+// import { CreatePromptCard } from "../components/CreatePromptCard.tsx"
+import {TestCard} from "../components/CreatePromptCard.tsx"
+import {api} from "@/lib/api.ts";
+
+const categories = await api.getCategories();
+---
+<Layout>
+    <main class="flex flex-col items-center min-h-screen p-4">
+        <!--// <TestCard client:load items={categories} />-->
+        <TestCard client:load />
+    </main>
+</Layout>

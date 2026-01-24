@@ -1,21 +1,36 @@
-interface LoginParams {
+export interface LoginParams {
     username: string;
     password: string;
 }
 
-interface RegisterParams {
+export interface RegisterParams {
     username: string;
     password: string;
     email: string;
     profileDescription: string;
 }
 
-interface AuthResponse {
+export interface AuthResponse {
     token: string;
 }
 
-interface BaseResponse {
+export interface BaseResponse {
     message: string;
+}
+
+export interface Category {
+    id: string;
+    name: string;
+    description: string;
+}
+
+export interface Prompt {
+    id: number;
+    category_id: string;
+    userowner: string;
+    title: string;
+    description: string;
+    time: string;
 }
 
 export class ApiClient {
@@ -59,6 +74,19 @@ export class ApiClient {
         return this.request<BaseResponse>('/user', {
             method: 'POST',
             body: JSON.stringify(credentials),
+        });
+    }
+
+    async getCategories(): Promise<Category[]> {
+        return this.request<Category[]>('/categories', {
+            method: 'GET',
+        });
+    }
+
+    async createPrompt(promptData: Prompt): Promise<BaseResponse> {
+        return this.request<BaseResponse>('/user', {
+            method: 'POST',
+            body: JSON.stringify(promptData),
         });
     }
 }
