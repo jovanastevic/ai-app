@@ -26,9 +26,9 @@ type Category = {
     value: number
 }
 
+//hardcoded categories weil combobox nervt
 const categories: Category[] = [
     {label: "Hausübung", value: 5},
-    {label: "Hausübung1", value: 3},
     {label: "Bauen", value: 6},
 ]
 
@@ -49,17 +49,16 @@ export function TestCard() {
 
         try {
             await api.createPrompt({
-                category_id: 5,
+                category_id: 5, //hardcoded gelassen, weil combobox nervt
                 title: formData.title,
                 description: formData.description,
-                userowner: "hallo"
             })
         } catch (err: any) {
             console.error(err);
         }
     }
 
-
+    // @ts-ignore
     return (
         <Card className="w-full max-w-lg">
             <CardHeader>
@@ -68,7 +67,7 @@ export function TestCard() {
             <CardContent>
                 <form id="create-prompt-form" onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-6">
-                        <Combobox items={categories} itemToStringValue={(category) => category.label}>
+                        <Combobox items={categories}>
                             <ComboboxInput placeholder="Kategorie wählen"/>
                             <ComboboxContent>
                                 <ComboboxEmpty>Keine Einträge gefunden</ComboboxEmpty>

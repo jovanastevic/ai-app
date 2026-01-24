@@ -26,7 +26,6 @@ export interface Category {
 
 export interface Prompt {
     category_id: number;
-    userowner: string;
     title: string;
     description: string;
 }

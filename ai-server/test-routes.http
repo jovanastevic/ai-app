@@ -91,9 +91,8 @@ Cookie: {{auth_cookie}}
 
 {
   "category_id": 6,
-  "userowner": "hallo",
-  "title": "TEST ROUTEfdaf TEST 2",
-  "description": "THIS IS A TEST ROUTE"
+  "title": "TEST ROUTEfdaf fdsaTEST 2",
+  "description": "THIS afS A TEST ROUTE"
 }
 
 ### Get all Prompts

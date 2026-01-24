@@ -8,7 +8,7 @@ const categories = await api.getCategories();
 ---
 <Layout>
     <main class="flex flex-col items-center min-h-screen p-4">
-        <!--// <TestCard client:load items={categories} />-->
-        <TestCard client:load />
+        <TestCard client:load categories={categories} />
+        <!--<TestCard client:load />-->
     </main>
 </Layout>
