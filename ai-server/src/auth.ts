@@ -13,15 +13,14 @@ export function generateToken(payload: ITokenPayload):string {
 
 export function validateAuth(req: Request, res: Response, next: NextFunction) {
     try{
-        const header = (req.headers.authorization ?? '').trim();
+        const token = req.cookies.auth_token;
 
-        if(!header.startsWith('Bearer ')) {
-            res.status(401).send();
+        if (!token) {
+            res.status(401).json({ message: "Kein Cookie gefunden" });
             return;
         }
-
-        const token = header.substring('Bearer '.length);
         const decoded = jwt.verify(token, process.env.JWT_SECRET!) as ITokenPayload;
+
         req.params._username = decoded.username;
         next();
     } catch {

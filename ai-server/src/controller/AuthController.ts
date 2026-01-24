@@ -23,6 +23,17 @@ export class AuthController {
             return
         }
         const payload = {username: data.data.username};
-        res.json({token: generateToken(payload)});
+        const token = generateToken(payload);
+        res.cookie('auth_token', token, {
+            httpOnly: true,
+            secure: false,
+            sameSite: 'lax',
+            maxAge: 1000 * 60 * 60 * 24
+        });
+
+        res.json({
+            message: 'Login erfolgreich',
+            username: data.data.username
+        });
     }
 }

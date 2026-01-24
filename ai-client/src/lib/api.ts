@@ -42,6 +42,7 @@ export class ApiClient {
 
     private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
         const response = await fetch(`${this.baseUrl}${endpoint}`, {
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
                 ...options.headers,
