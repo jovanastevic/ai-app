@@ -19,7 +19,10 @@ const wss = new WebSocketServer({server});
 
 app.use(bodyParser.json());
 app.use(express.static("public")); //nur für den test WS
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:4321',
+    credentials: true
+}));
 
 AuthController.init(app);
 UserController.init(app);
