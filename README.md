@@ -16,5 +16,11 @@
 - Dark Mode [X]
 - API Client [X] (i think so?, lib/api.ts)
 - Authentifizierung [X] (httpOnly Cookie im Backend)
-- Clean code [] - check mit ```npm run astro check```
+- Clean code [] - check mit ```npm run astro check``` - errors wegen shadcn/ui components
 - Ich habe Bootsfahrschule... [X]
+
+
+## jovanas fragen:
+- API macht ja gerade Requests nach localhost, wie macht man das mit env Variablen, dass es bei
+"dev" localhost ist und bei "prod" die richtige URL?
+- 

@@ -34,7 +34,7 @@ export function Auth() {
 
         try {
             if (isLogin) {
-                const response = await api.login({
+                await api.login({
                     username: formData.username,
                     password: formData.password
                 });

@@ -50,7 +50,6 @@ export class ApiClient {
         // const data = await response.json();
 
         const text = await response.text();
-
         //register sends empty response body, triggers error - workaround
         const data = text ? JSON.parse(text) : {};
 
@@ -87,6 +86,12 @@ export class ApiClient {
             body: JSON.stringify(promptData),
         });
     }
-}
 
+    // async getPrompt(promptData: Prompt): Promise<BaseResponse> {
+    //     return this.request<BaseResponse>('/prompts', {
+    //         method: 'GET',
+    //     });
+    // }
+}
+//TODO: change after deploying
 export const api = new ApiClient('http://localhost:3000');
