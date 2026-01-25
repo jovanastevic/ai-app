@@ -99,7 +99,7 @@ Cookie: {{auth_cookie}}
 GET http://localhost:3000/prompts
 
 ### Get one Prompt
-GET http://localhost:3000/prompts/12
+GET http://localhost:3000/prompts/5
 
 ### Update Prompt
 PUT http://localhost:3000/prompts/2

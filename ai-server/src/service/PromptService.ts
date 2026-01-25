@@ -19,7 +19,7 @@ export class PromptService {
 
     static async getPromptById(Id: number): Promise<'error' | undefined | IPrompt> {
         try {
-            const [prompt] = await DB.query<RowDataPacket[]>('select id, category_id, userowner, title, description, time_stamp from prompts where id = ?', [Id]);
+            const [prompt] = await DB.query<RowDataPacket[]>('select p.id, c.name, p.userowner, p.title, p.description, p.time_stamp from prompts p join category c on c.id = p.category_id WHERE p.id = ?', [Id]);
             if (!prompt || prompt.length === 0) {
                 return undefined;
             }
