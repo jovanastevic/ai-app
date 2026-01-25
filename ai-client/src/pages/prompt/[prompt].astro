@@ -1,13 +1,13 @@
 ---
 export const prerender = false;
 import Layout from '../../layouts/Layout.astro';
-import { PromptCard } from '../../components/PromptCard.tsx';
+import { PromptCardDetail } from '../../components/PromptCardDetail.tsx';
 import {api} from '@/lib/api';
 const { prompt } = Astro.params;
 const response = await api.getPromptById(prompt);
 ---
 <Layout>
     <main class="flex flex-col items-center min-h-screen p-4">
-        <PromptCard client:load prompt={response} />
+        <PromptCardDetail client:load prompt={response} />
     </main>
 </Layout>

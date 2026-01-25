@@ -26,6 +26,7 @@ export interface Category {
 
 export interface Prompt {
     category_id: number;
+    name: string;
     title: string;
     description: string;
 }
@@ -97,7 +98,6 @@ export class ApiClient {
     async getPrompts(): Promise<Prompt[]> {
         return this.request<Prompt[]>('/prompts', {
             method: 'GET',
-
         });
     }
 

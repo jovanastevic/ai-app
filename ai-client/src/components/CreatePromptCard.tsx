@@ -28,8 +28,9 @@ type Category = {
 
 //hardcoded categories weil combobox nervt
 const categories: Category[] = [
-    {label: "Hausübung", value: 5},
-    {label: "Bauen", value: 6},
+    {label: "Hausübung", value: 1},
+    {label: "Bauen", value: 2},
+    {label: "Programmieren", value: 3},
 ]
 
 export function TestCard() {
@@ -49,7 +50,7 @@ export function TestCard() {
 
         try {
             await api.createPrompt({
-                category_id: 5, //hardcoded gelassen, weil combobox nervt
+                category_id: 1, //hardcoded gelassen, weil combobox nervt
                 title: formData.title,
                 description: formData.description,
             })
