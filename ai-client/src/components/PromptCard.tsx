@@ -13,7 +13,7 @@ export function PromptCard({prompt}) {
         <Card className="mx-auto w-full max-w-1/2">
             <CardHeader>
                 <div>
-                    <Badge>category</Badge>
+                    <Badge>Category</Badge>
                 </div>
                 <CardTitle><a href="/#openDetail">{prompt.title}</a></CardTitle>
                 <CardDescription>

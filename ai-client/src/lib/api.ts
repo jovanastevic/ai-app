@@ -80,10 +80,24 @@ export class ApiClient {
         });
     }
 
+    async getCategoryById(categoryid: string | number): Promise<Category> {
+        const id = encodeURIComponent(String(categoryid));
+        return this.request<Category>(`/categories/${id}`, {
+            method: 'GET',
+        });
+    }
+
     async createPrompt(promptData: Prompt): Promise<BaseResponse> {
         return this.request<BaseResponse>('/prompts', {
             method: 'POST',
             body: JSON.stringify(promptData),
+        });
+    }
+
+    async getPrompts(): Promise<Prompt[]> {
+        return this.request<Prompt[]>('/prompts', {
+            method: 'GET',
+
         });
     }
 

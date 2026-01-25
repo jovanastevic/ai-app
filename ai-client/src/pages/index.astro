@@ -1,12 +1,17 @@
 ---
 import {PromptCard} from '../components/PromptCard.tsx';
 import Layout from '../layouts/Layout.astro';
-
-// if(!Astro.cookies.has("jwt")){
-//     return Astro.redirect("/auth");
-// }
-
+import {api} from '../lib/api.ts';
+const prompts = await api.getPrompts();
 ---
 <Layout>
-    <!--<PromptCard client:load/>-->
+    <main class="flex flex-col items-center min-h-screen p-4 space-y-2">
+        {prompts.map((prompt) => (
+                <div class="w-full">
+                <PromptCard client:load prompt={prompt}/>
+                </div>
+        ))
+
+        }
+    </main>
 </Layout>
