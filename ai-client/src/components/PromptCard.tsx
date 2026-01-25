@@ -15,7 +15,7 @@ export function PromptCard({prompt}) {
                 <div>
                     <Badge>Category</Badge>
                 </div>
-                <CardTitle><a href="/#openDetail">{prompt.title}</a></CardTitle>
+                <CardTitle><a href={`/prompt/${prompt.id}`}>{prompt.title}</a></CardTitle>
                 <CardDescription>
                     <span className="font-bold">@{prompt.userowner}</span> - {formatTimestamp(prompt.time_stamp)}
                 </CardDescription>

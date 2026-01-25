@@ -1,13 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import {Image} from "astro:assets"
+import unfall from "@/assets/aber-unfall.gif";
+import yeayea from "@/assets/werk-it.gif";
 ---
 <Layout>
-    <div class="p-4">
-        <h1 class="text-3xl">Ich habe in der Bootsfahrschule gelernt, dass...</h1>
-        <ul class="list-disc p-4">
-            <li>Astro eine recht gute Doku hat im Vergleich zu anderen Tools/Frameworks.</li>
-            <li>Shadcn ganz cool ist.</li>
-            <li>Svelte deserves more recognition. Der React Syntax ist assss.</li>
-        </ul>
-    </div>
+    <main class="p-4 flex flex-col items-center">
+        <section class="flex flex-col items-center mb-8">
+            <h1 class="text-3xl">Ich habe in der Bootsfahrschule gelernt, dass...</h1>
+            <ul class="list-disc p-4">
+                <li>Astro eine recht gute Doku hat im Vergleich zu anderen Tools/Frameworks.</li>
+                <li>Shadcn ist hübsch, die Doku ist meh.</li>
+                <li>wie man <span class="font-bold">.gifs</span> einbaut.</li>
+            </ul>
+            <Image src={unfall} alt="yeayea"/>
+        </section>
+        <section class="flex flex-col items-center mb-8">
+            <h1 class="text-3xl">Gerne gelernt hätten wir...</h1>
+            <ul class="list-disc p-4">
+                <li>wie genau man Authentifizierung macht, hätte sehr viel Zeit im Projekt gespart</li>
+                <li>wie man mit nem UI Framework wie shadcn arbeitet</li>
+            </ul>
+            <Image src={yeayea} alt="yeayea"/>
+        </section>
+    </main>
+
 </Layout>
