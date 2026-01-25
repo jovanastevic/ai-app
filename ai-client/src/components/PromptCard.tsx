@@ -6,27 +6,23 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import {formatTimestamp} from "@/lib/utils.ts";
 
-export function PromptCard() {
+export function PromptCard({prompt}) {
     return (
         <Card className="mx-auto w-full max-w-1/2">
             <CardHeader>
                 <div>
-                    <Badge>Category</Badge>
-                    <Badge variant="secondary">Category</Badge>
+                    <Badge>category</Badge>
                 </div>
-                <CardTitle><a href="/#openDetail">Prompt Title</a></CardTitle>
+                <CardTitle><a href="/#openDetail">{prompt.title}</a></CardTitle>
                 <CardDescription>
-                    24.01.2026
+                    <span className="font-bold">@{prompt.userowner}</span> - {formatTimestamp(prompt.time_stamp)}
                 </CardDescription>
             </CardHeader>
             <CardContent>
                 <p>
-                    prompt description lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
+                    {prompt.description}
                 </p>
             </CardContent>
         </Card>

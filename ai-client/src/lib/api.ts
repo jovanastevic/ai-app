@@ -87,11 +87,12 @@ export class ApiClient {
         });
     }
 
-    // async getPrompt(promptData: Prompt): Promise<BaseResponse> {
-    //     return this.request<BaseResponse>('/prompts', {
-    //         method: 'GET',
-    //     });
-    // }
+    async getPromptById(promptid: string | number): Promise<Prompt> {
+        const id = encodeURIComponent(String(promptid));
+        return this.request<Prompt>(`/prompts/${id}`, {
+            method: 'GET',
+        });
+    }
 }
 //TODO: change after deploying
 export const api = new ApiClient('http://localhost:3000');

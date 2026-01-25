@@ -1,14 +1,13 @@
 ---
 export const prerender = false;
 import Layout from '../../layouts/Layout.astro';
+import { PromptCard } from '../../components/PromptCard.tsx';
 import {api} from '@/lib/api';
 const { prompt } = Astro.params;
 const response = await api.getPromptById(prompt);
-const prompt = await response.json();
 ---
 <Layout>
     <main class="flex flex-col items-center min-h-screen p-4">
-        <h1 class="text-3xl font-bold mb-4">Prompt Details Page</h1>
-        <p>This is where the details of a specific prompt will be displayed.</p>
+        <PromptCard client:load prompt={response} />
     </main>
 </Layout>
