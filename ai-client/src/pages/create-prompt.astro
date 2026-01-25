@@ -4,11 +4,11 @@ import Layout from '../layouts/Layout.astro';
 import {TestCard} from "../components/CreatePromptCard.tsx"
 import {api} from "@/lib/api.ts";
 
-const categories = await api.getCategories();
+const categories = await api.getCategories(); //works, aber combobox füllen zu zach
 ---
 <Layout>
     <main class="flex flex-col items-center min-h-screen p-4">
-        <TestCard client:load categories={categories} />
-        <!--<TestCard client:load />-->
+        <!--<TestCard client:load categories={categories} />-->
+        <TestCard client:load />
     </main>
 </Layout>

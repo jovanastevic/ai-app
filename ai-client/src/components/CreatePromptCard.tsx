@@ -57,7 +57,6 @@ export function TestCard() {
             console.error(err);
         }
     }
-
     // @ts-ignore
     return (
         <Card className="w-full max-w-lg">
