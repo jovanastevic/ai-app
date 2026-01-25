@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static("public")); //nur für den test WS
 app.use(cors({
-    origin: 'http://localhost:4321',
+    origin: 'https://mt241005-10985.node.ustp.cloud',
     credentials: true
 }));
 
