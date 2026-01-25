@@ -6,7 +6,7 @@ import {IEditPrompt, INewPrompt, IPrompt, Prompt} from "../model/Prompt";
 export class PromptService {
     static async getAllPrompts(): Promise<undefined | 'error' | IPrompt[]> {
         try {
-            const [prompts] = await DB.query<RowDataPacket[]>('select id, category_id, userowner, title, description, time_stamp from prompts');
+            const [prompts] = await DB.query<RowDataPacket[]>('select p.id, c.name, p.userowner, p.title, p.description, p.time_stamp from prompts p join category c on c.id = p.category_id');
             if (!prompts || prompts.length === 0) {
                 return undefined;
             }
