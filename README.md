@@ -1,20 +1,21 @@
-# Actual Intelligence (AI) - Semesterprojekt WS25
+# Actual Intelligence (AI) - Semesterprojekt
 
 ## TODO:
-- Backend [X]
+- Kurzbeschreibung des Projekts [] - Verena
+- Presentation Layer - UML [] - Verena
+- Presentation Layer - Mockups [] - Verena
+- Business Layer - UML (inkl Navigabilität, Kardinalität und Zugriffsmodifier) [] - Sadi
+- Data Layer - ER Diagramm [] - Jovana
 
-### Anforderungen Frontend
-- Node Adapter anlegen [X]
-- Min 3 verschiedene Seiten [X] (Auth, Index, Create Prompt)
-- min 1 dynamische Route [category].astro [X]
-- Astro Komponenten [X] (Layout, AuthLayout)
-- Weiteres UI Framework [X] (React + shadcn/ui)
-- min 2 Seiten die Daten aus API laden [X] (Prompt, Index)
-- Styling [X] (shadcn/ui, TailwindCSS)
 
-#### Zusatz:
-- Dark Mode [X]
-- API Client [X] (i think so?, lib/api.ts)
-- Authentifizierung [X] (httpOnly Cookie im Backend)
-- Clean code [] - check mit ```npm run astro check``` - errors wegen shadcn/ui components
-- Ich habe Bootsfahrschule... [X]
+### Frontend Aufgaben:
+- Bei "/create-prompt" Combobox enthardcoden
+- Websocket Oberfläche
+- Authentication Login und Logout
+- Prompts löschen und neue einbauen weil "test test" is oag schirch
+- Code Kommentare einbauen
+- Swagger UI für API Dokumentation für extra Punkte
+
+#### Backend Aufgaben:
+- Eine Ding mit if true return true fixen
+- Auth vlt umändern idk, /logout muss glaub auch da sein
