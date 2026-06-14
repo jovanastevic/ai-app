@@ -1,9 +1,9 @@
 ### Create new User
-POST http://localhost:3000/user
+POST https://mt241087-10984.node.ustp.cloud/user
 Content-Type: application/json
 
 {
-  "username": "test12",
+  "username": "test12344",
   "password": "1234",
   "email": "dajdj@gmail.com",
   "profileDescription": "I am the admin user"
@@ -67,6 +67,9 @@ Content-Type: application/json
 
 ### Get all Categories
 GET http://localhost:3000/categories
+
+###
+GET https://mt241087-10984.node.ustp.cloud/categories
 
 ### Get one Category
 GET http://localhost:3000/categories/5

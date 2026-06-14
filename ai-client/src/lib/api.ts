@@ -108,5 +108,5 @@ export class ApiClient {
         });
     }
 }
-//TODO: change after deploying
+
 export const api = new ApiClient('http://localhost:3000');

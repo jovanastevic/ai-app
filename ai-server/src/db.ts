@@ -5,5 +5,5 @@ export const DB = mysql.createPool({
     port: parseInt(process.env.DB_PORT!),
     database: process.env.DB_DB,
     user: process.env.DB_USER,
-    password: process.env.DB_PW
+    password: process.env.DB_PASSWORD
 });
