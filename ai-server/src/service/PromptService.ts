@@ -4,13 +4,15 @@ import {ResultSetHeader, RowDataPacket} from "mysql2";
 import {IEditPrompt, INewPrompt, IPrompt, Prompt} from "../model/Prompt";
 
 export class PromptService {
-    static async getAllPrompts(): Promise<undefined | 'error' | IPrompt[]> {
+    static async getAllPrompts(): Promise< 'error' | IPrompt[]> {
         try {
             const [prompts] = await DB.query<RowDataPacket[]>('select p.id, c.name, p.userowner, p.title, p.description, p.time_stamp from prompts p join category c on c.id = p.category_id');
-            if (!prompts || prompts.length === 0) {
-                return undefined;
+            const parsed = z.array(Prompt).safeParse(prompts);
+            if (!parsed.success) {
+                console.error("Zod Validierungsfehler:", parsed.error);
+                return 'error';
             }
-            return z.array(Prompt).safeParse(prompts).data;
+            return parsed.data;
         } catch (e) {
             console.error(e);
             return 'error';

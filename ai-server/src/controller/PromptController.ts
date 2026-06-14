@@ -15,10 +15,8 @@ export class PromptController {
 
     static async getAllPrompts(req: Request, res: Response) {
         const prompts = await PromptService.getAllPrompts();
-        if (!prompts) {
-            res.status(404).send();
-            return;
-        } else if (prompts === 'error') {
+
+        if (prompts === 'error') {
             res.status(500).json({message: 'Database error'});
             return;
         }
