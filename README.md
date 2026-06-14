@@ -5,7 +5,9 @@
 - Presentation Layer - UML [] - Verena
 - Presentation Layer - Mockups [] - Verena
 - Business Layer - UML (inkl Navigabilität, Kardinalität und Zugriffsmodifier) [] - Sadi
-- Data Layer - ER Diagramm [X] - Jovana - check vor Abgabe
+- Data Layer - ER Diagramm [] - Jovana - check vor Abgabe
+- Alles was mit Admin zu tun hat raus aus dem Code [] - Sadi
+- checken ob alle HTTP Codes richtig bzw sinnvoll sind [] - Alle bitte
 
 
 ### Frontend Aufgaben:
@@ -19,6 +21,8 @@
 - Eine Ding mit if true return true fixen [] - Sadi
 - Auth vlt umändern idk, /logout muss glaub auch da sein [] - Sadi
 - Swagger UI für API Dokumentation für extra Punkte [] - ka mal schauen
+- Catagories nur eine Get Route [] - Sadi
+- Chat Doku richtig stellen /ChatroomController Überarbeiten [] - Sadi
 
 ### Fehlermeldungen:
 - Wenn keine Prompts, soll kein Error sein, sondern einfach "Keine Prompts vorhanden" oder so anzeigen

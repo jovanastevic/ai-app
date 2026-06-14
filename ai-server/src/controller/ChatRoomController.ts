@@ -13,7 +13,7 @@ export class ChatRoomController {
     }
 
     static async getChatRoomByID(req: Request, res: Response){
-      const room = await ChatRoomService.getChatRommByID(parseInt(req.params.id));
+      const room = await ChatRoomService.getChatRoomByID(parseInt(req.params.id));
         if(!room){
             res.status(404).send();
             return;

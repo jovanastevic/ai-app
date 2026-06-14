@@ -5,7 +5,7 @@ import {DB} from "../db";
 import {ResultSetHeader, RowDataPacket} from "mysql2";
 
 export class ChatRoomService{
-    static async getChatRommByID(id: number): Promise<'error' | IChatRoom| undefined> {
+    static async getChatRoomByID(id: number): Promise<'error' | IChatRoom| undefined> {
         try {
             const [rows] = await DB.query<RowDataPacket[]>('select id, name, time_stamp from chat_room where id = ?', [id]);
             if (!rows || rows.length === 0) {
