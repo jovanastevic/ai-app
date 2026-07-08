@@ -3,6 +3,11 @@
 ## SADI DIVA WILL LINKS HIER:
 - https://ui.shadcn.com/docs/components/base/message-scroller
 - https://ui.shadcn.com/docs/components/base/message
+- https://docs.astro.build/en/basics/layouts/#sample-layout
+
+Layout machen für Chats, dann ne Page und dann ig Components oder so
+
+
 ## TODO:
 - Kurzbeschreibung des Projekts [] - Verena
 - Presentation Layer - UML [X] - Sadi
