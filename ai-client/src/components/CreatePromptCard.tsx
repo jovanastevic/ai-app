@@ -27,6 +27,7 @@ type Category = {
 }
 
 //hardcoded categories weil combobox nervt
+// vlt hier https://github.com/shadcn-ui/ui/discussions/9631
 const categories: Category[] = [
     {label: "Hausübung", value: 1},
     {label: "Bauen", value: 2},

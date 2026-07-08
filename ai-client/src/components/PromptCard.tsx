@@ -7,6 +7,9 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
+// used in homepage "/"
+// Used components and their documentation:
+// https://ui.shadcn.com/docs/components/base/card
 export function PromptCard({prompt}) {
     return (
         <Card className="mx-auto w-full max-w-1/2">

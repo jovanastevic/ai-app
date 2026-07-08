@@ -4,6 +4,7 @@ import logoLight from "@/assets/logo-yea-light.svg";
 import {ModeToggle} from "@/components/ModeToggle.tsx";
 import {PlusIcon} from "lucide-react"
 
+// header which is used in Layout.astro with the logo, title, plus icon for creating prompts, mode toggle for dark mode and user avatar
 export function Header() {
     return (
         <header className="w-full h-18 flex items-center border-b justify-between p-3">

@@ -11,6 +11,9 @@ import {
     LogOutIcon,
 } from "lucide-react"
 
+
+// Used components and their documentation:
+// https://ui.shadcn.com/docs/components/base/dropdown-menu#avatar
 export function UserAvatar() {
     function handleLogout() {
         window.location.href = "/auth";

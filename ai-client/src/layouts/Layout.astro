@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import {Header} from "../components/Header.tsx";
 ---
-
+<!--for dark mode, copied from https://ui.shadcn.com/docs/dark-mode/astro -->
 <script is:inline>
     const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {

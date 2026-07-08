@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button"
 import {formatTimestamp} from "@/lib/utils.ts";
 
+//TODO: herausfinden, wieso ich nen link zum user wollte & dann herausfinden, wieso der nicht ging
 export function PromptCardDetail({prompt}) {
     console.log(prompt);
     return (

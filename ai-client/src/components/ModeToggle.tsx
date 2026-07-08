@@ -9,6 +9,8 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+
+// copied from: https://ui.shadcn.com/docs/dark-mode/astro
 export function ModeToggle() {
     const [theme, setThemeState] = React.useState<
         "theme-light" | "dark" | "system"
