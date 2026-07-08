@@ -96,7 +96,7 @@ export class ApiClient {
         });
     }
 
-    async getPrompts(): Promise<Prompt[]> {
+    async getAllPrompts(): Promise<Prompt[]> {
         return this.request<Prompt[]>('/prompts', {
             method: 'GET',
         });

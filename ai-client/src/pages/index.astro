@@ -2,7 +2,7 @@
 import {PromptCard} from '../components/PromptCard.tsx';
 import Layout from '../layouts/Layout.astro';
 import {api} from '../lib/api.ts';
-const prompts = await api.getPrompts();
+const prompts = await api.getAllPrompts();
 // const prompts = await res.json();
 ---
 <!-- all prompts are displayed on the homepage, getPrompts is returning an array of prompts -->

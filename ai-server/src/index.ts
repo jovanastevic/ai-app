@@ -12,6 +12,7 @@ import {PromptController} from "./controller/PromptController";
 import {ChatRoomController} from "./controller/ChatRoomController";
 import {ChatController} from "./controller/ChatController";
 import cookieParser from "cookie-parser";
+import morgan from "morgan";
 
 
 const app = express();
@@ -19,6 +20,7 @@ const server = createServer(app);
 const wss = new WebSocketServer({server});
 
 app.use(bodyParser.json());
+app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.static("public")); //nur für den test WS
 app.use(cors({
