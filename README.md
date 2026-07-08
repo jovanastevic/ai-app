@@ -31,3 +31,6 @@
 - beim Eingeben von Login/Register Data sollte auch eine Fehlermeldung kommen, wenn die Daten falsch sind, z.B. "Falscher Benutzername oder Passwort"
 - Beim Erstellen eines Prompts sollte auch eine Fehlermeldung kommen, wenn die Daten falsch sind, z.B. "Ungültige Eingabe"
 - checken ob alle HTTP Codes richtig bzw sinnvoll sind [] - Alle bitte
+
+### Sonstiges:
+- Am Ende checken, ob so Methods die nd verwendet wurden im Backend noch da sind & rauslöschen
