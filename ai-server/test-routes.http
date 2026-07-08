@@ -93,8 +93,8 @@ Content-Type: application/json
 Cookie: {{auth_cookie}}
 
 {
-  "category_id": 6,
-  "title": "TEST ROUTEfdaf fdsaTEST 2",
+  "category_id": 1,
+  "title": "a",
   "description": "THIS afS A TEST ROUTE"
 }
 

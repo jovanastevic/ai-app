@@ -27,7 +27,7 @@ type Category = {
 }
 
 //hardcoded categories weil combobox nervt
-// vlt hier https://github.com/shadcn-ui/ui/discussions/9631
+// TODO: vlt hier https://github.com/shadcn-ui/ui/discussions/9631
 const categories: Category[] = [
     {label: "Hausübung", value: 1},
     {label: "Bauen", value: 2},
@@ -48,7 +48,7 @@ export function TestCard() {
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-
+        console.log("handleSubmitfas");
         try {
             await api.createPrompt({
                 category_id: 1, //hardcoded gelassen, weil combobox nervt
@@ -86,7 +86,6 @@ export function TestCard() {
                             <Input
                                 id="title"
                                 type="text"
-                                required
                                 onChange={handleChange}
                             />
                         </div>
@@ -94,7 +93,7 @@ export function TestCard() {
                             <div className="flex items-center">
                                 <Label htmlFor="description">Beschreibung</Label>
                             </div>
-                            <Textarea id="description" placeholder="Gib hier deinen Prompt ein... " required onChange={handleChange}/>
+                            <Textarea id="description" placeholder="Gib hier deinen Prompt ein... "  onChange={handleChange}/>
                         </div>
                     </div>
                 </form>

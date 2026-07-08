@@ -1,5 +1,8 @@
 # Actual Intelligence (AI) - Semesterprojekt
 
+## SADI DIVA WILL LINKS HIER:
+- https://ui.shadcn.com/docs/components/base/message-scroller
+- https://ui.shadcn.com/docs/components/base/message
 ## TODO:
 - Kurzbeschreibung des Projekts [] - Verena
 - Presentation Layer - UML [X] - Sadi
@@ -34,3 +37,4 @@
 
 ### Sonstiges:
 - Am Ende checken, ob so Methods die nd verwendet wurden im Backend noch da sind & rauslöschen
+

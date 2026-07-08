@@ -49,16 +49,17 @@ export class ApiClient {
         });
 
         // const data = await response.json();
-
-        const text = await response.text();
-        //register sends empty response body, triggers error - workaround
-        const data = text ? JSON.parse(text) : {};
-
         if (!response.ok) {
-            throw new Error(data.message || 'Ein Fehler ist aufgetreten');
+            const errorText = await response.text();
+            throw new Error(errorText || `Fehler: ${response.status}`);
         }
+        //const text = await response.text();
+        //register sends empty response body, triggers error - workaround
 
-        return data as T;
+        //const data = text ? JSON.parse(text) : {};
+
+        //return data as T;
+        return await response.json() as T;
     }
 
     async login(credentials: LoginParams): Promise<AuthResponse> {
