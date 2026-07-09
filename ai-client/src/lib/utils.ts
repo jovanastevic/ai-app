@@ -17,3 +17,4 @@ export function formatTimestamp(input: string | Date | null | undefined): string
     const minutes = pad(d.getMinutes());
     return `${day}.${month}.${year}, ${hours}:${minutes}`;
 }
+

@@ -6,7 +6,7 @@ import {validateAuth} from "../auth";
 
 export class PromptController {
     static init(app: Express): void {
-        app.get('/prompts/', PromptController.getAllPrompts);
+        app.get('/prompts/', validateAuth, PromptController.getAllPrompts);
         app.get('/prompts/:id', PromptController.getPromptById);
         app.post('/prompts/',validateAuth, PromptController.createPrompt);
         app.put('/prompts/:id',validateAuth, PromptController.updatePrompt);
